@@ -1,0 +1,19 @@
+
+Repository - willroden.github.io
+--------------------------------
+
+https://raw.githubusercontent.com/willroden/mailgun-client/mvn-repo
+
+Note that this repository isn't browsable.  You can use it in your pom.xml like this:
+
+    <repositories>
+        <repository>
+            <id>mailgun-client-mvn-repo</id>
+            <url>https://raw.githubusercontent.com/willroden/mailgun-client/mvn-repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    
