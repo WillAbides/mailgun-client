@@ -6,6 +6,8 @@ jdk:
 branches:
   except:
   - travis
+  - gh-pages
+  - mvn-repo
 env:
   global:
   - secure: aNa0jPKq0jw6IxED8OM1SqBO7FDfVguQbHgEowA2pKZDxcPRJG2k3ysxdozH3giDB5BJWW/IXqG2UsfRlAHlrwtYbk5qa7DQhLFVO4N3TvPIZtW0zAzVrN3qrNX4crjbb7qMBWosQUZMn0NFdixCi5qVLKGYuo0Qtz/x6wbcz0c=
