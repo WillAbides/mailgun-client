@@ -1,4 +1,4 @@
-package io.github.willroden.mailgun.client
+package cc.roden.mailgun.client
 
 import groovyx.net.http.ContentType
 import groovyx.net.http.RESTClient

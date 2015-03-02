@@ -1,4 +1,4 @@
-package io.github.willroden.mailgun.client
+package cc.roden.mailgun.client
 
 import org.apache.commons.collections.map.MultiValueMap
 
