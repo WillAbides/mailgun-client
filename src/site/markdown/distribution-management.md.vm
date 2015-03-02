@@ -2,7 +2,7 @@
 Repository - willroden.github.io
 --------------------------------
 
-https://raw.githubusercontent.com/willroden/mailgun-client/mvn-repo
+https://github.com/willroden/mailgun-client/tree/gh-pages/io/github/willroden/mailgun-client
 
 Note that this repository isn't browsable.  You can use it in your pom.xml like this:
 
