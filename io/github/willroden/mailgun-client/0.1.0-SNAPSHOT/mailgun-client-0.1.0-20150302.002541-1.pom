@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.willroden</groupId>
+    <artifactId>mailgun-client</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <properties>
+        <github.global.server>github</github.global.server>
+    </properties>
+
+    <scm>
+        <url>https://github.com/willroden/mailgun-client</url>
+        <connection>scm:git:https://github.com/willroden/mailgun-client.git</connection>
+        <developerConnection>scm:git:https://github.com/willroden/mailgun-client.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <description>A groovy/java client for sending emails with mailgun</description>
+
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <skipDeploy>true</skipDeploy>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.ju-n.maven.doxia</groupId>
+                        <artifactId>doxia-module-markdown</artifactId>
+                        <version>1.0.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.1</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo
+                    </altDeploymentRepository>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.11</version>
+
+                <executions>
+                    <execution>
+                        <id>mvn-site</id>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                        <configuration>
+                            <repositoryName>mailgun-client</repositoryName>
+                            <repositoryOwner>willroden</repositoryOwner>
+                            <message>Creating site for ${project.version}</message>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>mvn-repo</id>
+                        <configuration>
+                            <repositoryName>mailgun-client</repositoryName>
+                            <repositoryOwner>willroden</repositoryOwner>
+                            <message>Creating mvn-repo for ${project.version}</message>
+                            <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+                            <noJekyll>true</noJekyll>
+                            <branch>refs/heads/mvn-repo</branch>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <merge>true</merge>
+                        </configuration>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
