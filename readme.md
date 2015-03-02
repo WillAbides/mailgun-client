@@ -1,5 +1,5 @@
-#mailgun-client
-
-See [the mvn site](http://willroden.github.io/mailgun-client) for more info
+#mailgun-client  
 
 [![Build Status](https://travis-ci.org/willroden/mailgun-client.svg?branch=master)](https://travis-ci.org/willroden/mailgun-client)
+
+See [the mvn site](http://willroden.github.io/mailgun-client) for more info
